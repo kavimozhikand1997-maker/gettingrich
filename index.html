@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Million Goal Finance App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Couple Wealth Command Centre</p>
+      <h1>Million Goal Tracker</h1>
+      <p>Track your household cashflow, upcoming payments, investments and progress towards S$1,000,000.</p>
+    </div>
+    <div class="hero-card">
+      <span>Net Worth</span>
+      <strong id="netWorthHero">S$0</strong>
+      <small id="goalGapHero">S$1,000,000 to go</small>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card span-2">
+      <h2>Setup</h2>
+      <div class="form-grid">
+        <label>Monthly household income <input id="income" type="number" min="0" placeholder="12800"></label>
+        <label>Monthly fixed expenses <input id="expenses" type="number" min="0" placeholder="6500"></label>
+        <label>Current cash savings <input id="cash" type="number" min="0" placeholder="50000"></label>
+        <label>Current investments <input id="investments" type="number" min="0" placeholder="20000"></label>
+        <label>Target savings rate % <input id="targetRate" type="number" min="0" max="100" placeholder="40"></label>
+        <label>Annual investment return % <input id="returnRate" type="number" min="0" max="20" step="0.1" placeholder="6"></label>
+        <label>Goal amount <input id="goal" type="number" min="0" value="1000000"></label>
+        <label>Target year <input id="targetYear" type="number" min="2026" placeholder="2036"></label>
+      </div>
+      <button id="saveSetup">Save setup</button>
+    </section>
+
+    <section class="card">
+      <h2>Goal monitor</h2>
+      <div class="progress-wrap"><div id="progressBar"></div></div>
+      <p class="big" id="progressText">0% funded</p>
+      <p id="monthlyNeed">Add your details to calculate your monthly target.</p>
+      <div class="nudge" id="nudgeBox">Your wealth coach nudges will appear here.</div>
+    </section>
+
+    <section class="card">
+      <h2>Cashflow</h2>
+      <div class="metric"><span>Monthly surplus</span><strong id="surplus">S$0</strong></div>
+      <div class="metric"><span>Savings rate</span><strong id="rate">0%</strong></div>
+      <div class="metric"><span>Projected net worth</span><strong id="projection">S$0</strong></div>
+    </section>
+
+    <section class="card span-2">
+      <h2>Payments & reminders</h2>
+      <div class="inline-form">
+        <input id="paymentName" placeholder="Car loan / insurance / credit card" />
+        <input id="paymentAmount" type="number" placeholder="Amount" />
+        <input id="paymentDate" type="date" />
+        <button id="addPayment">Add</button>
+      </div>
+      <button class="secondary" id="enableAlerts">Enable browser alerts</button>
+      <div id="payments"></div>
+    </section>
+
+    <section class="card span-2">
+      <h2>Stock / ETF trend watchlist</h2>
+      <p class="muted">Educational trend tracker only. Use this to shortlist diversified ETFs or stocks to research, not as automatic buy/sell advice.</p>
+      <div class="inline-form">
+        <input id="ticker" placeholder="e.g. VWRA, CSPX, ES3, AAPL" />
+        <input id="watchNote" placeholder="Why watching? e.g. Core ETF / dividend / tech" />
+        <button id="addTicker">Add</button>
+      </div>
+      <div id="watchlist"></div>
+    </section>
+
+    <section class="card span-2">
+      <h2>Wealth rules</h2>
+      <ul class="rules">
+        <li>Emergency fund first: 6–12 months of core expenses.</li>
+        <li>Clear high-interest debt before aggressive investing.</li>
+        <li>Automate monthly investing after bills and savings buffer.</li>
+        <li>Diversify across cash, CPF/SRS, broad-market ETFs, bonds/T-bills and selected stocks.</li>
+        <li>Review insurance protection before chasing returns.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <button id="exportData">Export data</button>
+    <label class="import">Import data <input id="importData" type="file" accept="application/json"></label>
+    <button class="danger" id="resetData">Reset</button>
+  </footer>
+
+<script src="app.js"></script>
+</body>
+</html>
